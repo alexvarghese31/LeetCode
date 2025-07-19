@@ -1,0 +1,10 @@
+        count=0
+        d={0:1}
+        summ=0
+        for i in nums:
+            summ+=i
+            needed=summ-k
+            if needed in d:
+                count+=d[needed]
+            d[summ]=d.get(summ,0)+1 #d.get(summ,0)->gets us summ and its value if exists else gives 0(default)
+        return count
