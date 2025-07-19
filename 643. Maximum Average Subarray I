@@ -1,0 +1,13 @@
+        l=0
+        r=0
+        n=len(nums)
+        summ=0
+        maxavg=float('-inf')
+        while r<n:
+            summ+=nums[r]
+            if (r-l+1)==k:
+                maxavg=max(maxavg,float(summ)/k)
+                summ-=nums[l]
+                l+=1
+            r+=1
+        return maxavg
