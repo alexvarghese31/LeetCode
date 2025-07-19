@@ -1,0 +1,35 @@
+class NumArray(object):
+
+    def __init__(self, nums):
+        """
+        :type nums: List[int]
+        """
+        #store the prefixes uptill index i in the prefix array
+        self.prefix=[]
+        summ=0
+        for i in nums:
+            summ+=i
+            self.prefix.append(summ)
+
+    def sumRange(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: int
+        """
+        #retrieve the prefixes and conpute the sum
+        rightsum=self.prefix[right]
+        if left==0:
+            leftsum=0
+        else:
+
+            leftsum=self.prefix[left-1]
+        return rightsum-leftsum
+            
+
+        
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(left,right)
