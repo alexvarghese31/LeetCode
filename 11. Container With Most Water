@@ -1,0 +1,12 @@
+        #2ptrs at the 2 extreme ends
+        l=0
+        r=len(height)-1
+        res=0
+        while l<r:#untill the overlap
+            area=(r-l)*min(height[l],height[r])#l*b
+            res=max(res,area)
+            if height[l]<height[r]:#++ l to get a higher height
+                l+=1
+            else:
+                r-=1#decrement r for other combinations
+        return res
