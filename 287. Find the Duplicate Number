@@ -1,0 +1,19 @@
+  class Solution(object):
+    def findDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        slow=nums[0]
+        fast=nums[0]
+        while True:
+            slow=nums[slow]#moves 1 step at a time
+            fast=nums[nums[fast]]#moves 2 steps at a time
+            if slow==fast:
+                break
+        slow=nums[0]
+        while slow!=fast:#the point when they meet again is the ans
+            slow=nums[slow]
+            fast=nums[fast]
+        return slow
